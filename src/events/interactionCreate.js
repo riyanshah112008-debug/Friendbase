@@ -126,6 +126,10 @@ module.exports = {
       }
     }
     if (interaction.isButton()) {
+      // Acknowledge button presses early to prevent "This interaction failed" and improve responsiveness
+      try {
+        if (!interaction.deferred && !interaction.replied) await interaction.deferUpdate().catch(() => null);
+      } catch (e) { /* ignore */ }
       const customId = interaction.customId || "";
       const [namespace, action] = customId.split(":");
       const musicAction = customId.startsWith("music_") ? customId.replace("music_", "") : null;
