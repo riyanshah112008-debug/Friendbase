@@ -1,6 +1,7 @@
 {
   "1532828245571928274": {
     "prefix": ",",
+    "eqPresets": {},
     "automod": {
       "enabled": true,
       "spam": true,
