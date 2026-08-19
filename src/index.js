@@ -175,18 +175,18 @@ function applyAudioEnhancement(player) {
 
   try {
     audioTarget.setFilters({
-      volume: 1.5,
+      volume: 1.9,
       equalizer: [
-        { band: 0, gain: 0.6 },   // 20 Hz - DEEP BASS
-        { band: 1, gain: 0.55 },  // 61 Hz - STRONG BASS
-        { band: 2, gain: 0.35 },  // 183 Hz - bass-mid
-        { band: 3, gain: 0.18 },  // 539 Hz - mid-bass
-        { band: 4, gain: 0.08 },  // 1.6 kHz - lower mid
-        { band: 5, gain: 0.0 },   // 4.8 kHz - mid
-        { band: 6, gain: -0.08 }, // 14.5 kHz - presence (reduce harshness)
-        { band: 7, gain: 0.05 },  // upper mid
-        { band: 8, gain: 0.08 },  // presence peak
-        { band: 9, gain: 0.05 },  // mid treble
+        { band: 0, gain: 0.9 },   // 20 Hz - DEEP BASS
+        { band: 1, gain: 0.8 },   // 61 Hz - STRONG BASS
+        { band: 2, gain: 0.5 },   // 183 Hz - bass-mid
+        { band: 3, gain: 0.25 },  // 539 Hz - mid-bass
+        { band: 4, gain: 0.12 },  // 1.6 kHz - lower mid
+        { band: 5, gain: 0.03 },  // 4.8 kHz - mid
+        { band: 6, gain: -0.05 }, // 14.5 kHz - presence (reduce harshness)
+        { band: 7, gain: 0.04 },  // upper mid
+        { band: 8, gain: 0.06 },  // presence peak
+        { band: 9, gain: 0.04 },  // mid treble
         { band: 10, gain: 0.02 }, // treble
         { band: 11, gain: 0.0 },  // high treble
         { band: 12, gain: 0.0 },  // treble
@@ -194,7 +194,7 @@ function applyAudioEnhancement(player) {
         { band: 14, gain: 0.0 }   // ultra high
       ],
       timescale: { speed: 1.0, pitch: 1.0, rate: 1.0 },
-      lowPass: { smoothing: 20 }
+      lowPass: { smoothing: 18 }
     });
   } catch (error) {
     console.warn("[Music] Could not apply filters:", error.message);

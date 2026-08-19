@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const { getSettings, updateSettings } = require("../../utils/guildSettings");
+const config = require("../../config");
 
 function parseToggleValue(input) {
   const value = String(input || "").trim().toLowerCase();
@@ -60,7 +61,7 @@ module.exports = {
           { name: "Mass Mention Filter", value: settings.automod.massMention ? "✅" : "❌", inline: true }
         )
         .setFooter({
-          text: "Use !settings <setting> <value> to change settings. Example: !settings automod caps off",
+        text: `Use ${config.prefix}settings <setting> <value> to change settings. Example: ${config.prefix}settings automod caps off`,
         });
 
       return message.reply({ embeds: [embed], failIfNotExists: false });
@@ -73,7 +74,7 @@ module.exports = {
     try {
       if (setting === "prefix") {
         if (!value) {
-          return message.reply({ content: "Use `!settings prefix <value>`", failIfNotExists: false });
+          return message.reply({ content: `Use \`${config.prefix}settings prefix <value>\``, failIfNotExists: false });
         }
         updateSettings(message.guild.id, { prefix: value });
         return message.reply({
@@ -100,7 +101,7 @@ module.exports = {
           const toggle = parseToggleValue(args[2]);
           if (!feature || toggle === null) {
             return message.reply({
-              content: "Use `!settings automod <spam|phishing|invites|caps|massmention> <on|off>`",
+              content: `Use \`${config.prefix}settings automod <spam|phishing|invites|caps|massmention> <on|off>\``, 
               failIfNotExists: false,
             });
           }
@@ -135,7 +136,7 @@ module.exports = {
         }
 
         return message.reply({
-          content: "Use `!settings automod <on|off>` or `!settings automod <spam|phishing|invites|caps|massmention> <on|off>`",
+          content: `Use \`${config.prefix}settings automod <on|off>\` or \`${config.prefix}settings automod <spam|phishing|invites|caps|massmention> <on|off>\``,
           failIfNotExists: false,
         });
       }
@@ -145,7 +146,7 @@ module.exports = {
         const toggle = parseToggleValue(value);
         if (toggle === null) {
           return message.reply({
-            content: `Use \`!settings ${setting} <on|off>\``,
+            content: `Use \`${config.prefix}settings ${setting} <on|off>\``, 
             failIfNotExists: false,
           });
         }
@@ -160,7 +161,7 @@ module.exports = {
       if (setting === "welcome") {
         const toggle = parseToggleValue(value);
         if (toggle === null) {
-          return message.reply({ content: "Use `!settings welcome <on|off>`", failIfNotExists: false });
+          return message.reply({ content: `Use \`${config.prefix}settings welcome <on|off>\``, failIfNotExists: false });
         }
         updateSettings(message.guild.id, { welcome: { enabled: toggle } });
         return message.reply({
@@ -172,7 +173,7 @@ module.exports = {
       if (setting === "goodbye") {
         const toggle = parseToggleValue(value);
         if (toggle === null) {
-          return message.reply({ content: "Use `!settings goodbye <on|off>`", failIfNotExists: false });
+          return message.reply({ content: `Use \`${config.prefix}settings goodbye <on|off>\``, failIfNotExists: false });
         }
         updateSettings(message.guild.id, { goodbye: { enabled: toggle } });
         return message.reply({
@@ -184,7 +185,7 @@ module.exports = {
       if (setting === "autorole") {
         const toggle = parseToggleValue(value);
         if (toggle === null) {
-          return message.reply({ content: "Use `!settings autorole <on|off>`", failIfNotExists: false });
+          return message.reply({ content: `Use \`${config.prefix}settings autorole <on|off>\``, failIfNotExists: false });
         }
         updateSettings(message.guild.id, { autorole: { enabled: toggle } });
         return message.reply({

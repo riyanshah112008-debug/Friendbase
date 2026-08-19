@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 // Centralized configuration with lightweight validation and Lavalink nodes parsing.
-const DEFAULT_PREFIX = process.env.PREFIX || "!";
+const DEFAULT_PREFIX = process.env.PREFIX || ",";
 
 function parseNodes() {
   const raw = process.env.LAVALINK_NODES || process.env.LAVALINK_NODES_JSON;

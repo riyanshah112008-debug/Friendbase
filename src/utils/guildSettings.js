@@ -10,7 +10,7 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 const DEFAULT_SETTINGS = {
-  prefix: "!",
+  prefix: ",",
   automod: {
     enabled: true,
     spam: true,

@@ -8,7 +8,7 @@ async function applyAudioPreset(player, preset) {
   if (!audioTarget) return false;
 
   const baseFilters = {
-    volume: 1.5,
+    volume: 1.8,
     equalizer: [
       { band: 0, gain: 0.6 },
       { band: 1, gain: 0.55 },
@@ -32,9 +32,9 @@ async function applyAudioPreset(player, preset) {
 
   switch (preset) {
     case 'bassboost':
-      await audioTarget.setFilters({ ...baseFilters, volume: 1.8, equalizer: [
-        { band: 0, gain: 0.8 }, { band: 1, gain: 0.75 }, { band: 2, gain: 0.5 }, { band: 3, gain: 0.25 }, { band: 4, gain: 0.1 },
-        { band: 5, gain: 0.0 }, { band: 6, gain: -0.1 }, { band: 7, gain: 0.0 }, { band: 8, gain: 0.0 }, { band: 9, gain: 0.0 },
+      await audioTarget.setFilters({ ...baseFilters, volume: 2.0, equalizer: [
+        { band: 0, gain: 1.0 }, { band: 1, gain: 0.9 }, { band: 2, gain: 0.6 }, { band: 3, gain: 0.3 }, { band: 4, gain: 0.15 },
+        { band: 5, gain: 0.05 }, { band: 6, gain: -0.05 }, { band: 7, gain: 0.02 }, { band: 8, gain: 0.02 }, { band: 9, gain: 0.0 },
         { band: 10, gain: 0.0 }, { band: 11, gain: 0.0 }, { band: 12, gain: 0.0 }, { band: 13, gain: 0.0 }, { band: 14, gain: 0.0 }
       ] });
       return true;

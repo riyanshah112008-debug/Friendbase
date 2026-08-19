@@ -34,7 +34,7 @@ function initializeDatabase() {
   db.exec(`
     CREATE TABLE IF NOT EXISTS guild_settings (
       guildId TEXT PRIMARY KEY,
-      prefix TEXT DEFAULT '!',
+      prefix TEXT DEFAULT ',',
       automodEnabled BOOLEAN DEFAULT 1,
       welcomeEnabled BOOLEAN DEFAULT 0,
       welcomeChannel TEXT,

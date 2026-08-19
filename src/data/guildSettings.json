@@ -1,6 +1,6 @@
 {
   "1532828245571928274": {
-    "prefix": "!",
+    "prefix": ",",
     "automod": {
       "enabled": true,
       "spam": true,
@@ -28,7 +28,7 @@
     }
   },
   "debug-test-123": {
-    "prefix": "!",
+    "prefix": ",",
     "automod": {
       "enabled": false,
       "spam": true,
@@ -56,7 +56,7 @@
     }
   },
   "gtest": {
-    "prefix": "!",
+    "prefix": ",",
     "automod": {
       "enabled": false,
       "spam": true,
@@ -84,7 +84,7 @@
     }
   },
   "selective-test": {
-    "prefix": "!",
+    "prefix": ",",
     "automod": {
       "enabled": true,
       "spam": false,
@@ -112,7 +112,7 @@
     }
   },
   "real-guild-test": {
-    "prefix": "!",
+    "prefix": ",",
     "automod": {
       "enabled": false,
       "spam": false,
