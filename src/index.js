@@ -175,26 +175,31 @@ function applyAudioEnhancement(player) {
 
   try {
     audioTarget.setFilters({
-      volume: 1.9,
+      // Slightly higher default volume for clearer output on most devices
+      volume: 2.2,
+      // Tuned equalizer: gentle low-end boost, slight mid reduction to reduce boxiness,
+      // and a small presence/high boost to improve vocal clarity and brightness.
       equalizer: [
-        { band: 0, gain: 0.9 },   // 20 Hz - DEEP BASS
-        { band: 1, gain: 0.8 },   // 61 Hz - STRONG BASS
-        { band: 2, gain: 0.5 },   // 183 Hz - bass-mid
-        { band: 3, gain: 0.25 },  // 539 Hz - mid-bass
-        { band: 4, gain: 0.12 },  // 1.6 kHz - lower mid
-        { band: 5, gain: 0.03 },  // 4.8 kHz - mid
-        { band: 6, gain: -0.05 }, // 14.5 kHz - presence (reduce harshness)
-        { band: 7, gain: 0.04 },  // upper mid
-        { band: 8, gain: 0.06 },  // presence peak
-        { band: 9, gain: 0.04 },  // mid treble
-        { band: 10, gain: 0.02 }, // treble
-        { band: 11, gain: 0.0 },  // high treble
-        { band: 12, gain: 0.0 },  // treble
+        { band: 0, gain: 1.0 },   // 20 Hz - DEEP BASS
+        { band: 1, gain: 0.9 },   // 61 Hz - STRONG BASS
+        { band: 2, gain: 0.55 },  // 183 Hz - bass-mid
+        { band: 3, gain: 0.18 },  // 539 Hz - mid-bass
+        { band: 4, gain: 0.06 },  // 1.6 kHz - lower mid (reduce boxiness)
+        { band: 5, gain: 0.02 },  // 4.8 kHz - mid
+        { band: 6, gain: 0.08 },  // 14.5 kHz - presence (add clarity)
+        { band: 7, gain: 0.06 },  // upper mid
+        { band: 8, gain: 0.1 },   // presence peak
+        { band: 9, gain: 0.06 },  // mid treble
+        { band: 10, gain: 0.03 }, // treble
+        { band: 11, gain: 0.02 }, // high treble
+        { band: 12, gain: 0.01 }, // treble
         { band: 13, gain: 0.0 },  // treble
         { band: 14, gain: 0.0 }   // ultra high
       ],
+      // Keep timescale neutral by default but allow presets to modify it
       timescale: { speed: 1.0, pitch: 1.0, rate: 1.0 },
-      lowPass: { smoothing: 18 }
+      // Lower smoothing so the lowpass filter does not overly muffle high frequencies
+      lowPass: { smoothing: 12 }
     });
   } catch (error) {
     console.warn("[Music] Could not apply filters:", error.message);

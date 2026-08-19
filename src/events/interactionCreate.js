@@ -8,25 +8,26 @@ async function applyAudioPreset(player, preset) {
   if (!audioTarget) return false;
 
   const baseFilters = {
-    volume: 1.8,
+    // Slightly increased defaults for better clarity across devices
+    volume: 2.0,
     equalizer: [
-      { band: 0, gain: 0.6 },
-      { band: 1, gain: 0.55 },
-      { band: 2, gain: 0.35 },
-      { band: 3, gain: 0.18 },
-      { band: 4, gain: 0.08 },
-      { band: 5, gain: 0.0 },
-      { band: 6, gain: -0.08 },
+      { band: 0, gain: 0.9 },
+      { band: 1, gain: 0.85 },
+      { band: 2, gain: 0.45 },
+      { band: 3, gain: 0.12 },
+      { band: 4, gain: 0.05 },
+      { band: 5, gain: 0.01 },
+      { band: 6, gain: 0.06 },
       { band: 7, gain: 0.05 },
-      { band: 8, gain: 0.08 },
+      { band: 8, gain: 0.09 },
       { band: 9, gain: 0.05 },
       { band: 10, gain: 0.02 },
-      { band: 11, gain: 0.0 },
+      { band: 11, gain: 0.01 },
       { band: 12, gain: 0.0 },
       { band: 13, gain: 0.0 },
       { band: 14, gain: 0.0 }
     ],
-    lowPass: { smoothing: 20 },
+    lowPass: { smoothing: 12 },
     timescale: { speed: 1.0, pitch: 1.0, rate: 1.0 }
   };
 
