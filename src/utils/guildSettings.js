@@ -11,6 +11,7 @@ if (!fs.existsSync(DATA_DIR)) {
 
 const DEFAULT_SETTINGS = {
   prefix: ",",
+  eqPresets: {},
   automod: {
     enabled: true,
     spam: true,

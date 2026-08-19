@@ -331,6 +331,11 @@ module.exports = {
     try {
       console.log(`[SlashCommand] Executing: ${commandName} by ${interaction.user.tag}`);
 
+      // Defer reply early for slash commands to improve responsiveness for long-running commands
+      try {
+        if (!interaction.deferred && !interaction.replied) await interaction.deferReply({ ephemeral: false }).catch(() => null);
+      } catch (e) { /* ignore */ }
+
       // If command has SlashCommandBuilder (data property), it's a slash command
       if (command.data && typeof command.execute === "function") {
         await command.execute(interaction, client);
@@ -347,7 +352,7 @@ module.exports = {
             guild: interaction.guild,
             channel: interaction.channel,
           // command implementations can call reply({ content, ephemeral: true })
-          reply: async (options) => interaction.reply({ ...options, ephemeral: !!options?.ephemeral }),
+          reply: async (options) => interaction.editReply({ ...options, ephemeral: !!options?.ephemeral }),
           defer: async () => interaction.deferReply({ ephemeral: false }),
           editReply: async (options) => interaction.editReply(options),
         },
