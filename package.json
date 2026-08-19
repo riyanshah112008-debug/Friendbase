@@ -30,7 +30,7 @@
     "ffmpeg-static": "^5.2.0",
     "google-translate-api-x": "^10.6.0",
     "kazagumo": "^3.0.0",
-    "kazagumo-spotify": "^1.0.0",
+    "kazagumo-spotify": "^2.1.1",
     "libsodium-wrappers": "^0.7.16",
     "mongoose": "^8.4.0",
     "opusscript": "^0.0.8",
