@@ -12,7 +12,7 @@ RUN apt-get update \
 
 # Copy package manifest and install production dependencies
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev --legacy-peer-deps
 
 # Copy application code
 COPY . .
