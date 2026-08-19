@@ -1,4 +1,4 @@
-const config = require("../../config");
+﻿const config = require("../../config");
 const { getSettings, updateSettings } = require("../../utils/guildSettings");
 
 module.exports = {
@@ -26,8 +26,6 @@ module.exports = {
     }
 
     updateSettings(guildId, { prefix: newPrefix });
-    return message.reply({ content: `✅ Server prefix updated to: \
-\\`${newPrefix}\
-\\``, failIfNotExists: false });
+    return message.reply({ content: `✅ Server prefix updated to: \`${newPrefix}\``, failIfNotExists: false });
   },
 };
