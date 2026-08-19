@@ -10,3 +10,4 @@ protect.db
 *.db
 logs/
 
+.env
