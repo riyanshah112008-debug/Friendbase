@@ -4,7 +4,7 @@
   "description": "Friendbase Discord bot with moderation, anti-raid, anti-nuke, music, games, and utilities.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/boot.js",
     "dev": "node --watch src/index.js",
     "check": "node -e \"const fs=require('fs'); const path=require('path'); const { spawnSync } = require('child_process'); let failed=false; function walk(dir){ for (const entry of fs.readdirSync(dir,{withFileTypes:true})) { const p=path.join(dir, entry.name); if (entry.isDirectory()) walk(p); else if (entry.isFile() && p.endsWith('.js')) { const res = spawnSync(process.execPath, ['--check', p], { stdio: 'inherit' }); if (res.status !== 0) failed = true; } } } walk('src'); process.exit(failed ? 1 : 0);\""
   },
